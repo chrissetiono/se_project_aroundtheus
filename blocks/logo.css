@@ -1,0 +1,17 @@
+.logo {
+    max-width: 173px;
+}
+
+@media screen and (max-width: 920px) {
+    .logo {
+        max-width: 150px;
+    }
+}
+
+@media screen and (max-width: 618px) {
+    .logo {
+        max-width: 126px;
+        margin-left: 8px;
+        margin-right: auto;
+    }
+}
