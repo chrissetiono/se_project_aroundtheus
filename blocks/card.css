@@ -1,4 +1,4 @@
-.card{
+.card {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -32,6 +32,7 @@
     white-space: nowrap;
     overflow: hidden;
     margin: 0;
+    max-width: 218px;
 }
 
 .card__like-button {
@@ -40,17 +41,11 @@
     width: 21px;
     border: none;
     color: white;
+    border: none;
     transition: all 0.5s;
 }
 
 .card__like-button:hover {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: pointer;
-}
-
-.card__like-button.active {
-    background: url(../images/like-active.svg) center no-repeat;
-    transition: all 0.5s;
-    width: 21px;
-    height: 18px;
 }

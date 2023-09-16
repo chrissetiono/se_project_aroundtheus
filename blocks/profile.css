@@ -55,6 +55,7 @@
     width: 150px;
     margin-left: auto;
     border: 2px solid white;
+    border-radius: 2px;
     transition: 0.5s;
 }
 
@@ -98,8 +99,8 @@
 
 @media screen and (max-width: 618px) {
     .profile {
-        display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .profile__image {
@@ -109,25 +110,27 @@
     .profile__info {
         margin-top: 30px;
         margin-bottom: 36px;
-        grid-template-columns: minmax(auto, 200px) auto;
+        grid-template-columns: auto;
+        text-align: center;
     }
 
     .profile__title {
         font-size: 22px;
         line-height: 27px;
+        width: auto;
+        margin-right: 10px;
     }
 
     .profile__edit-button {
         height: 18px;
         width: 18px;
-        margin-left: 10px;
+        margin: 0;
     }
 
     .profile__description {
         font-size: 14px;
         line-height: 17px;
-        margin-top: 17px;
-        text-align: center;
+        margin-top: 14px;
     }
 
     .profile__add-button {
