@@ -2,7 +2,17 @@
     margin: 0;
     padding-top: 45px;
     padding-bottom: 40px;
-    border-bottom: 1px solid rgba(84, 84, 84, 1);
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+}
+
+.header__logo {
+    max-width: 173px;
+}
+
+@media screen and (max-width: 920px) {
+    .header__logo {
+        max-width: 150px;
+    }
 }
 
 @media screen and (max-width: 618px) {
@@ -11,5 +21,12 @@
         padding-bottom: 32px;
         padding-left: 0px;
         padding-right: 0px;
+        max-width: inherit;
+    }
+
+    .header__logo {
+        max-width: 126px;
+        margin-left: 27px;
+        margin-right: auto;
     }
 }
