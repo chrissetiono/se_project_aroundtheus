@@ -34,6 +34,12 @@
     background-image: url(../images/close-icon.svg);
     background-repeat: no-repeat;
     background-size: contain;
+    transition: 0.5s;
+}
+
+.modal__close:hover {
+    opacity: 0.6;
+    cursor: pointer;
 }
 
 .modal__heading {
