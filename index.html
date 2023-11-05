@@ -24,42 +24,6 @@
             </section>
             <section class="cards page__section">
                 <ul class="cards__list">
-                    <li class="card">
-                        <img src="./images/yosemite.jpg" class="card__image" alt="Yosemite Valley"/>
-                        <div class="card__description">
-                            <h2 class="card__title">Yosemite Valley</h2>
-                            <button class="card__like-button" type="button" aria-label="Like"></button></div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/lake-louise.jpg" class="card__image" alt="Lake Louise"/>
-                        <div class="card__description">
-                            <h2 class="card__title">Lake Louise</h2>
-                            <button class="card__like-button" type="button" aria-label="Like"></button></div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/bald-mountains.jpg" class="card__image" alt="Bald Mountains"/>
-                        <div class="card__description">
-                            <h2 class="card__title">Bald Mountains</h2>
-                            <button class="card__like-button" type="button" aria-label="Like"></button></div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/latemar.jpg" class="card__image" alt="Latemar"/>
-                        <div class="card__description">
-                            <h2 class="card__title">Latemar</h2>
-                            <button class="card__like-button" type="button" aria-label="Like"></button></div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/vanoise.jpg" class="card__image" alt="Vanoise National Park"/>
-                        <div class="card__description">
-                            <h2 class="card__title">Vanoise National Park</h2>
-                            <button class="card__like-button" type="button" aria-label="Like"></button></div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/lago.jpg" class="card__image" alt="Lago di Braies"/>
-                        <div class="card__description">
-                            <h2 class="card__title">Lago di Braies</h2>
-                            <button class="card__like-button" type="button" aria-label="Like"></button></div>
-                    </li>
                 </ul>
             </section>
         </main>
@@ -72,12 +36,21 @@
             <button class="modal__close"></button>
             <p class="modal__heading">Edit profile</p>
             <form class="modal__form">
-                <input class="modal__form-input" type="text" name="title" placeholder="Jacques Cousteau"/>
-                <input class="modal__form-input" type="text" name="description" placeholder="Explorer"/>
+                <input class="modal__input-title" id="profile-title-input" type="text" name="title" placeholder="Jacques Cousteau"/>
+                <input class="modal__input-description" id="profile-description-input" type="text" name="description" placeholder="Explorer"/>
+                <button class="modal__button" type="submit">Save</button>
             </form>
-            <button class="modal__button" type="submit">Save</button>
         </div>
     </div>
+
+    <template id="card-template">
+        <li class="card">
+            <img src="" class="card__image" alt=""/>
+            <div class="card__description">
+                <h2 class="card__title"></h2>
+                <button class="card__like-button" type="button" aria-label="Like"></button></div>
+        </li>
+    </template>
     <script src="./scripts/index.js"></script>
 </body>
 </html>
