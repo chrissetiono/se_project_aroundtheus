@@ -144,3 +144,4 @@ initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
     renderCard(cardElement, cardListEl);
 });
+
