@@ -20,7 +20,7 @@
                     <button class="profile__edit-button" id="profile-edit-button" type="button" aria-label="Edit Profile"></button>
                     <p class="profile__description">Explorer</p>
                 </div>
-                <button class="profile__add-button" type="button" aria-label="Add Profile"></button>
+                <button class="profile__add-button" id='add-button' type="button" aria-label="Add Profile"></button>
             </section>
             <section class="cards page__section">
                 <ul class="cards__list">
@@ -31,11 +31,12 @@
             <p class="footer__copyright">&copy; 2023 Around The U.S.</p>
         </footer>
     </div>
+
     <div class="modal" id="profile-edit-modal">
         <div class="modal__container">
             <button class="modal__close"></button>
             <p class="modal__heading">Edit profile</p>
-            <form class="modal__form">
+            <form class="modal__form" id="edit-profile-form">
                 <input class="modal__input-title" id="profile-title-input" type="text" name="title" placeholder="Jacques Cousteau"/>
                 <input class="modal__input-description" id="profile-description-input" type="text" name="description" placeholder="Explorer"/>
                 <button class="modal__button" type="submit">Save</button>
@@ -43,8 +44,29 @@
         </div>
     </div>
 
+    <div class="modal" id="add-card-modal">
+        <div class="modal__container">
+            <button class="modal__close"></button>
+            <p class="modal__heading">New Place</p>
+            <form class="modal__form" id="add-card-form">
+                <input class="modal__input-title" id="profile-title-input" type="text" name="title" placeholder="Title"/>
+                <input class="modal__input-description" id="profile-description-input" type="text" name="link" placeholder="Image Link"/>
+                <button class="modal__button" type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="preview-image-modal">
+        <div class="modal__image-container">
+            <button class="modal__close modal__close_type_preview"></button>
+            <img class="modal__image" src="" alt=""/>
+            <p class="modal__image-caption"></p>
+        </div>
+    </div>
+
     <template id="card-template">
         <li class="card">
+            <button class="card__delete-button" type="button" aria-label="Delete"></button>
             <img src="" class="card__image" alt=""/>
             <div class="card__description">
                 <h2 class="card__title"></h2>
