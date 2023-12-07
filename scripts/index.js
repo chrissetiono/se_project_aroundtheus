@@ -145,3 +145,18 @@ initialCards.forEach((cardData) => {
     renderCard(cardElement, cardListEl);
 });
 
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal_opened')) {
+        closeModal(e.target);
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const openedModal = document.querySelector('.modal_opened');
+        if (openedModal) {
+            closeModal(openedModal);
+        }
+    }
+});
+

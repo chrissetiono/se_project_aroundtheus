@@ -54,28 +54,16 @@
     font-weight: 900;
     font-style: normal;
     color: #000;
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 24px;
 }
 
 .modal__form {
     display: flex;
     flex-direction: column;
-    margin-top: 54px;
 }
 
-.modal__input-title {
-    font-family: "Inter", Arial, sans-serif;
-    font-size: 14px;
-    line-height: 17px;
-    font-weight: 400;
-    font-style: normal;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    color: rgba(0, 0, 0, 1);
-    padding: 0 0 13px;
-}
-
-.modal__input-description {
+.modal__input {
     font-family: "Inter", Arial, sans-serif;
     font-size: 14px;
     line-height: 17px;
@@ -104,6 +92,12 @@
     padding: 0;
 }
 
+.modal__button_disabled {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 0.15);
+}
+
 .modal__image-container {
     display: flex;
     position: relative;
@@ -126,6 +120,19 @@
     font-style: normal;
     color: #fff;
     margin: 10px 0 0;
+}
+
+.modal__error_visible {
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 12px;
+    line-height: 14.52px;
+    font-weight: 400;
+    font-style: normal;
+    color: rgba(255, 0, 0, 1);
+}
+
+.modal__input_type_error {
+    border-bottom: 1px solid rgba(255, 0, 0, 1);
 }
 
 @media screen and (max-width: 580px) {
