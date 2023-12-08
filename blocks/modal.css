@@ -98,6 +98,16 @@
     color: rgba(0, 0, 0, 0.15);
 }
 
+.modal__button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.modal__button_disabled:hover {
+    opacity: 1;
+    cursor: default;
+}
+
 .modal__image-container {
     display: flex;
     position: relative;

@@ -23,7 +23,7 @@ const initialCards = [
         name: "Lago di Braies", 
         link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg"
     }
-]
+];
 
 /* ELEMENTS */
 
@@ -40,27 +40,38 @@ const cardTemplate = document.querySelector("#card-template").content.firstEleme
 
 const cardAddModal = document.querySelector('#add-card-modal'); 
 const cardAddButton = document.querySelector('#add-button');
-const cardAddCloseButton = cardAddModal.querySelector(".modal__close")
+const cardAddCloseButton = cardAddModal.querySelector(".modal__close");
 const cardAddForm = document.forms["add-card-form"];
 
 const previewImageModal = document.querySelector('#preview-image-modal');
 const modalImageElement = previewImageModal.querySelector(".modal__image");
 const modalImageCaption = previewImageModal.querySelector(".modal__image-caption");
-const previewImageCloseButton = previewImageModal.querySelector(".modal__close")
+const previewImageCloseButton = previewImageModal.querySelector(".modal__close");
 
 /* FUNCTIONS */
 
 function closeModal(modal) {
     modal.classList.remove('modal_opened');
-}
+    document.removeEventListener('keydown', closeModalByEscape);
+    modal.removeEventListener("mousedown", closeModalOnRemoteClick);
+};
 
 function openModal(modal) {
     modal.classList.add('modal_opened');
-}
+    document.addEventListener('keydown', closeModalByEscape);
+    modal.addEventListener("mousedown", closeModalOnRemoteClick);
+};
+
+function closeModalByEscape(event) {
+    if (event.key === 'Escape') {
+        const openedModal = document.querySelector('.modal_opened');
+        closeModal(openedModal);
+    };
+};
 
 function renderCard(cardElement, container) {
     container.prepend(cardElement);
-}
+};
 
 function getCardElement(cardData) {
     const cardElement = cardTemplate.cloneNode(true);
@@ -82,13 +93,19 @@ function getCardElement(cardData) {
         modalImageElement.alt = cardData.name;
         modalImageCaption.textContent = cardData.name;
         openModal(previewImageModal);
-    })
+    });
 
     cardImageEl.src = cardData.link;
     cardImageEl.alt = cardData.name;
     cardTitleEl.textContent = cardData.name;
     return cardElement;
-}
+};
+
+function closeModalOnRemoteClick(evt) {
+    if (evt.target === evt.currentTarget) { 
+      closeModal(evt.target);
+    }
+};
 
 /* EVENT HANDLERS */
 
@@ -105,20 +122,21 @@ function handleAddCardsubmit(e) {
     const link = e.target.link.value;
     const cardElement = getCardElement({
         name, link
-    })
-    renderCard(cardElement, cardListEl)
+    });
+    renderCard(cardElement, cardListEl);
     e.target.reset();
     closeModal(cardAddModal); 
-}
+};
 
-
-/* EVENT LISTENER */
-
-profileEditButton.addEventListener('click', () => {
+function handleProfileEditButton () {
     profileTitleInput.value = profileTitle.textContent;
     profileDescriptionInput.value = profileDescription.textContent;
     openModal(profileEditModal);
-});
+};
+
+/* EVENT LISTENER */
+
+profileEditButton.addEventListener('click', handleProfileEditButton);
 
 profileEditCloseButton.addEventListener('click', () => {
     closeModal(profileEditModal);
@@ -144,19 +162,3 @@ initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
     renderCard(cardElement, cardListEl);
 });
-
-document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal_opened')) {
-        closeModal(e.target);
-    }
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const openedModal = document.querySelector('.modal_opened');
-        if (openedModal) {
-            closeModal(openedModal);
-        }
-    }
-});
-

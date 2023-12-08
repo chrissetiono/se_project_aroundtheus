@@ -28,15 +28,13 @@ function checkInputValidity(formEl, inputEl, options) {
 const hasValidInputs = (inputList) => inputList.every((inputEl) => inputEl.validity.valid === true)
 
 function toggleButtonState(inputList, submitButton, options) {
-    submitButton.disabled = false;
     if (!hasValidInputs(inputList)) {
         submitButton.disabled = true;
         submitButton.classList.add(options.inactiveButtonClass)
     } else {
+        submitButton.disabled = false;
         submitButton.classList.remove(options.inactiveButtonClass);
     }
-    return submitButton.disabled;
-
 }
 
 function setEventListeners(formEl, options) {
@@ -48,7 +46,6 @@ function setEventListeners(formEl, options) {
 
             toggleButtonState(inputList, submitButton, options);
         })
-
     })
 }
 
