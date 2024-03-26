@@ -28,18 +28,19 @@ export default class Card {
     }
 
     _setEventListeners() {
-        this._likeButton.addEventListener("click", () => {this._handleLikeButton();});
+        this._likeButton.addEventListener("click", this._handleLikeButton);
 
-        this._deleteButton.addEventListener("click", () => {this._handleDeleteButton();});
+        this._deleteButton.addEventListener("click", this._handleDeleteButton);
         
         this._cardImageEl.addEventListener("click", () => {this._handleImageClick({name: this._name, link: this._link});});
     }
 
-    _handleLikeButton() {
+    _handleLikeButton = () => {
         this._likeButton.classList.toggle("card__like-button_active");
     }
 
-    _handleDeleteButton() {
+    _handleDeleteButton = () => {
         this._cardElement.remove();
+        this._cardElement = null;
     }
 };

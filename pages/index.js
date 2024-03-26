@@ -102,12 +102,12 @@ function handleProfileEditSubmit(e) {
     closeModal(profileEditModal); 
 }
 
-function handleAddCardsubmit(e) {
+function handleAddCardSubmit(e) {
     e.preventDefault();
     const name = e.target.title.value;
     const link = e.target.link.value;
     const card = new Card({name, link}, "#card-template", handleImageClick)
-    const cardElement = card.generateCard();
+    const cardElement = createCard({name, link});
     renderCard(cardElement, cardListEl);
     e.target.reset();
     closeModal(cardAddModal); 
@@ -128,6 +128,7 @@ profileEditCloseButton.addEventListener('click', () => {
 });
 
 cardAddButton.addEventListener('click', () => {
+    addCardFormValidator.toggleButtonState();
     openModal(cardAddModal);
 });
 
@@ -141,7 +142,7 @@ previewImageCloseButton.addEventListener('click', () => {
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
-cardAddForm.addEventListener("submit", handleAddCardsubmit);
+cardAddForm.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach((cardData) => {
     const cardElement = createCard(cardData);
