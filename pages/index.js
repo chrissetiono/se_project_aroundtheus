@@ -106,7 +106,6 @@ function handleAddCardSubmit(e) {
     e.preventDefault();
     const name = e.target.title.value;
     const link = e.target.link.value;
-    const card = new Card({name, link}, "#card-template", handleImageClick)
     const cardElement = createCard({name, link});
     renderCard(cardElement, cardListEl);
     e.target.reset();
